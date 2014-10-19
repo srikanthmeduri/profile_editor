@@ -1,0 +1,43 @@
+
+extends layout
+
+block content
+    
+    include header-loggedin
+    include modals/alert
+    include modals/confirm
+    include modals/form-errors    
+
+    form( method="post")#account-settings.form-horizontal.well.span6
+        input#userId(type='hidden', value=userdata._id, name='id')
+        h1 Account Settings
+        p#sub1.subheading Update your account settings.
+        hr
+        fieldset                     
+            #user-cg.control-group
+                label.control-label(for='user-tf') Username
+                .controls
+                    input#user-tf.input-xlarge.disabled(type='text', name='username', value= userdata.username, disabled='disabled')
+
+            #pass-cg.control-group
+                label.control-label(for='pass-tf') Password
+                .controls
+                    input#pass-tf.input-xlarge(type='password', name='password', value= userdata.password)
+
+            #email-cg.control-group
+                label.control-label(for='email-tf') Email
+                .controls
+                    input#email-tf.input-xlarge(type='text', name='email', value= userdata.email)
+
+            .form-actions
+                button(type='button')#account-settings-btn0.btn Cancel
+                button(type='button')#account-settings-btn1.btn.btn-danger Delete
+                button(type='submit')#account-settings-btn2.btn.btn-primary Submit
+
+block scripts
+    script(src='/vendor/jquery.form.js')
+    script(src='/vendor/bootstrap-modal.js')
+    script(src='/vendor/bootstrap-transition.js')
+    script(src='/js/views/settings/settings.js')
+    script(src='/js/controllers/homeController.js')
+    script(src='/js/form-validators/accountValidator.js')

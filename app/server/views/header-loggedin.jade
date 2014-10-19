@@ -1,0 +1,23 @@
+.navbar.navbar-inverse
+        .navbar-inner
+            h2.header.floatleft Profile Editor
+            .container
+                button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar                                                        
+                p.navbar-text.pull-right
+                    |Logged in as: 
+                    strong #{userdata.username}    
+                    a(href='/logout')
+                        button#btn-logout.btn.btn-primary
+                            i.icon-lock.icon-white
+                            | Sign Out                
+                .nav-collapse.collapse
+                    ul#nav.nav
+                        li
+                            a(href='/editprofile')#editprofile Edit Profile
+                        li
+                            a(href='/addjobopening')#addjobopening Jobs
+                        li
+                            a(href='/accountsettings')#accountsettings Account Settings

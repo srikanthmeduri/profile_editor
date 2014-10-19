@@ -1,0 +1,154 @@
+- user = typeof(userdata) != 'undefined' ? userdata : { }
+
+- educationprofile = typeof(user.educationprofile) != null ? user.educationprofile : null
+
+- if(educationprofile != null)
+    - educations = typeof(user.educationprofile.educations) != null ? user.educationprofile.educations : null
+    - certifications = typeof(user.educationprofile.certifications) != null ? user.educationprofile.certifications : null
+
+
+    
+- if(educationprofile != null)
+    //p yes data
+    h3
+        span.educationtitle Education
+        a.adddegree + Add More
+        .clear-fix
+    .educationarray
+        each edu, i in educations
+            h6
+                span.arrow ►
+                span Education# #{i+1}
+            .education.hide
+                .row-fluid
+                    .control-group
+                        label.control-label School/College:                            
+                        input.schoolname(type='text', name='schoolname', value=edu.schoolname)
+                .row-fluid
+                    .control-group
+                        label.control-label University:                 
+                        input.universityname(type='text', name='universityname', value=edu.universityname)
+                .row-fluid
+                    .control-group
+                        label.control-label Degree Name:                 
+                        input.degreename(type='text', name='degreename', value=edu.degreename)
+                .row-fluid
+                    .control-group
+                        label.control-label Level:                 
+                        input.degreelevel(type='text', name='degreelevel', value=edu.degreelevel)
+                .row-fluid
+                    .span6
+                        .control-group
+                            label.control-label Attended From:                 
+                            input.input-small.attendedstartdate(type='text', name='attendedstartdate', value=edu.attendedstartdate)
+                    .span6
+                        .control-group
+                            label.control-label Attended To:                 
+                            input.input-small.attendedenddate(type='text', name='attendedenddate', value=edu.attendedenddate)
+                .row-fluid
+                    .control-group
+                        label.control-label Graduated:                                         
+                        - if(edu.graduated === 'true')                                                
+                            input.graduated(type='checkbox', name='graduated', value='true', checked='checked')
+                        - else                                    
+                            input.graduated(type='checkbox', name='graduated', value='false')
+
+    h3
+        span.certificationtitle Professional Certifications
+        a.addcertification + Add More
+        .clear-fix
+    .certificationarray
+        each cert, i in certifications
+            h6
+                span.arrow ►
+                span Professional Certifications# #{i+1}
+            .certification.hide
+                .row-fluid
+                    .control-group
+                        label.control-label Organization Name:                            
+                        input.professionalorganizationname(type='text', name='professionalorganizationname', value=cert.professionalorganizationname)
+                .row-fluid
+                    .control-group
+                        label.control-label Certification Name:
+                        input.certificationname(type='text', name='certificationname', value=cert.certificationname)                                     
+                .row-fluid
+                    .control-group
+                        label.control-label(for='completed') Completed:                 
+                        - if(cert.completed === 'true')                                                
+                            input.completed(type='checkbox', name='completed', value='true', checked='checked')
+                        - else                                        
+                            input.completed(type='checkbox', name='completed', value='false')                    
+                .row-fluid
+                    .control-group
+                        label.control-label2(for='validtill') Valid Till:                 
+                        input.validtill(type='text', name='validtill', value=cert.validtill)
+
+- else
+    //p no data
+    h3
+        span.educationtitle Education
+        a.adddegree + Add More
+        .clear-fix
+    .educationarray
+        h6
+            span.arrow ▼
+            span Education#
+        .education
+            .row-fluid
+                .control-group
+                    label.control-label School/College:                            
+                    input.schoolname(type='text', name='schoolname')
+            .row-fluid
+                .control-group
+                    label.control-label University:                 
+                    input.universityname(type='text', name='universityname')
+            .row-fluid
+                .control-group
+                    label.control-label Degree Name:                 
+                    input.degreename(type='text', name='degreename')
+            .row-fluid
+                .control-group
+                    label.control-label Level:                 
+                    input.degreelevel(type='text', name='degreelevel')
+            .row-fluid
+                .span6
+                    .control-group
+                        label.control-label Attended From:                 
+                        input.input-small.attendedstartdate(type='text', name='attendedstartdate')
+                .span6
+                    .control-group
+                        label.control-label Attended To:                 
+                        input.input-small.attendedenddate(type='text', name='attendedenddate')
+            .row-fluid
+                .control-group
+                    label.control-label Graduated:                 
+                    input.graduated(type='checkbox', name='graduated', value='false')
+    
+    h3
+        span.certificationtitle Professional Certifications
+        a.addcertification + Add More
+        .clear-fix
+    .certificationarray
+        h6
+            span.arrow ▼
+            span Professional Certifications#
+        .certification
+            .row-fluid
+                .control-group
+                    label.control-label Organization Name:                            
+                    input.professionalorganizationname(type='text', name='professionalorganizationname')
+            .row-fluid
+                .control-group
+                    label.control-label Certification Name:                 
+                    input.certificationname(type='text', name='certificationname')
+            .row-fluid
+                .control-group
+                    label.control-label(for='completed') Completed:                 
+                    input.completed(type='checkbox', name='completed', value='false')
+            .row-fluid
+                .control-group
+                    label.control-label2(for='validtill') Valid Till:                 
+                    input.validtill(type='text', name='validtill')
+
+.form-actions                        
+    button(type='submit')#education-profile-submit.btn.btn-primary Save

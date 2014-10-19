@@ -1,0 +1,138 @@
+extends layout
+
+block content
+    include header-loggedin
+    include modals/EmailFriend
+
+    #smartedit        
+        #part1
+            div
+                |Search 
+                input#search(type='radio', value='search', name='mode', checked='checked')
+                |Tag 
+                input#tag(type='radio', value='tag', name='mode')
+            br
+                   
+            .section
+                .left(style='width:80%;')
+                    strong Job Info                
+                .right(style='width:20%; text-align:left')
+                    strong Overall&nbsp;
+                    span#overall_percent 0%
+            #jobdesc
+                .section
+                    .left
+                        h6 Description
+                    .right
+                        span#job_desc_percent 0%
+            #jobresp
+                .section
+                    .left
+                        h6 Responsibilities
+                    .right
+                        span#job_resp_percent 0%
+            #skills
+                .section
+                    .left
+                        h6 Skills
+                    .right
+                        span#skills_percent 0%
+
+
+        #part2
+            #headerbar
+                .leftsection
+                    input#middle_searchterm.input-large.search-query(type='text')
+                    input#middle_searchbtn.btn.btn-primary(type='button', value='Search')
+                    span#middle_searchstatus
+
+                .rightsection
+                    input#middle_preview.btn.btn-primary(type='button', value='Preview')
+                    input#middle_runchecks.btn.btn-primary(type='button', value='Runchecks')
+                    input#middle_contactfriend.btn.btn-primary(type='button', value='Contact Friend')                
+            br
+            h4 Customize Profile
+            br        
+            #part2content
+                div #{gen.firstname} #{gen.lastname}
+                br
+                .section
+                    .left
+                        strong Objective
+                    .right.showhide.collapse
+                #objective.searchcontent(contenteditable='true') #{prof.objective}
+                br
+                .section
+                    .left
+                        strong Summary
+                    .right.showhide.collapse
+                div#summary.searchcontent(contenteditable='true') #{prof.summary}
+                br
+                div
+                    strong Work Experience            
+                #experience
+                    each job in prof.jobpositions              
+                        .expbox
+                            .rowhead.padtopbot10
+                                .title.searchcontent #{job.jobtitle}
+                                .dates #{job.startdate} - #{job.enddate}
+                                .updown
+                                    a.expup(href='#') ▲
+                                    a.expdown(href='#') ▼
+                                .expcol.showhide.collapse
+                            .content
+                                .searchcontent #{job.companyinfo.companyname}, #{job.companyinfo.companylocationcity}, #{job.companyinfo.companylocationstate}
+                                br
+                                #jobresponsibilities.searchcontent(contenteditable='true') #{job.jobresponsibilities}
+                                br
+                                #jobskills.searchcontent(contenteditable='true') #{job.jobskills}                               
+                                .projects                                                                                 
+                                    each project in job.projectinfo
+                                        .projectbox
+                                            .rowhead.padtopbot10
+                                                .title.searchcontent #{project.projectname}
+                                                .dates #{project.assignmentstart} - #{project.assignmentend}
+                                                .updown
+                                                    a.projup(href='#') ▲
+                                                    a.projdown(href='#') ▼
+                                                .expcol.showhide.collapse
+                                        
+                                            .content
+                                                #responsibilitiesonprojectteam.searchcontent(contenteditable='true') #{project.responsibilitiesonprojectteam}
+                                                br
+                                                #skillsonprojectteam.searchcontent(contenteditable='true') #{project.skillsonprojectteam}
+
+                br
+                br
+                div
+                    strong Education
+                #education
+                    .marginleft20
+                        each education in edu.educations
+                            .searchcontent.padtopbot10 #{education.degreename}
+                            .searchcontent #{education.schoolname}, #{education.universityname}
+                br
+                br
+                div
+                    strong Certifications
+                #certification
+                    .marginleft20
+                        each cert in edu.certifications
+                            .searchcontent.padtopbot10 #{cert.certificationname}
+                            .searchcontent #{cert.professionalorganizationname}
+    
+    
+        #part3
+            .title Tag List
+            .tags                        
+        .clear-fix            
+                                                        
+block scripts
+    script(src='/vendor/bootstrap-modal.js')
+    script(src='/vendor/bootstrap-transition.js')
+    script(src='/js/views/smartedit/smartedit.js')
+    script
+        var data1 = '#{jobopening.jobinfo.jobdescription}';
+        var data2 = '#{jobopening.jobinfo.jobresponsibilities}';
+        var data3 = '#{jobopening.jobinfo.skills}';
+        generate([data1,data2,data3]);

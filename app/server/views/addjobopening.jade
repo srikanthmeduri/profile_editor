@@ -1,0 +1,94 @@
+
+extends layout
+
+block content
+    
+    include header-loggedin
+
+    .row-fluid
+        .span8
+            table#savedjobs.table
+                thead
+                    tr
+                        th #
+                        th Company
+                        th Agency
+                        th Job Title
+                        th Status
+                        th Custom Profile
+                tbody
+
+        .span4
+            button(type='button')#addjob.btn.btn-primary Add Job
+
+
+    
+
+    form#addjobopeningform.span10.well.hide(method='post')
+        input#userId(type='hidden', value=userdata._id, name='id')
+        fieldset
+            legend Add Job Opening
+            h5 Job Info
+            .control-group
+                label.control-label Job Title:
+                input.jobtitle(type='text', name='jobtitle')
+            .control-group
+                label.control-label Job Location:
+                input.joblocation(type='text', name='joblocation')
+            .control-group
+                label.control-label Job Description:
+                textarea.jobdescription.input-xxlarge(name='jobdescription')
+            .control-group
+                label.control-label Job Responsibilities:
+                textarea.jobresponsibilities.input-xxlarge(name='jobresponsibilities')
+            .control-group
+                label.control-label Skills:
+                textarea.skills.input-xxlarge(name='skills')
+            .control-group
+                label.control-label By Agency?
+                input.byagency(type='checkbox', name='byagency', value='true', checked='checked')
+            h5 Agency Info
+            .control-group
+                label.control-label Name:
+                input.agencyname(type='text', name='agencyname')
+            .control-group
+                label.control-label Country:
+                input.agencycountry(type='text', name='agencycountry')
+            .control-group
+                label.control-label State:
+                input.agencystate(type='text', name='agencystate')
+            .control-group
+                label.control-label City:
+                input.agencycity(type='text', name='agencycity')
+            .control-group
+                label.control-label Zip:
+                input.agencyzip(type='text', name='agencyzip')
+            h5 Company Info
+            .control-group
+                label.control-label Name:
+                input.companyname(type='text', name='companyname')
+            .control-group
+                label.control-label Description:
+                textarea.companydescription.input-xxlarge(name='companydescription')
+            .control-group
+                label.control-label Country:
+                input.companycountry(type='text', name='companycountry')
+            .control-group
+                label.control-label State:
+                input.companystate(type='text', name='companystate')
+            .control-group
+                label.control-label City:
+                input.companycity(type='text', name='companycity')
+            .control-group
+                label.control-label Zip:
+                input.companyzip(type='text', name='companyzip')
+        .form-actions                        
+            button(type='button')#addjobopeningformcancel.btn Cancel
+            button(type='submit')#addjobopeningformsubmit.btn.btn-primary Save
+
+    form#editjobopeningform.span10.well.hide(method='post')
+block scripts
+    script(src='/vendor/underscore-min.js')
+    script(src='/vendor/backbone-min.js')
+    script(src='/js/views/jobopening/jobopening.js')
+    script(src='/js/views/jobopening/jobController.js')

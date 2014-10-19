@@ -1,0 +1,89 @@
+
+extends layout
+
+block content
+    include header-loggedin    
+    form#generalprofile.well.span10(method='post')
+        input#userId(type='hidden', value=userdata._id, name='id')
+        fieldset
+            legend General Profile
+            - genprofile = typeof(userdata.generalprofile) != null ? userdata.generalprofile : null
+            - if(genprofile != null)                
+                .row-fluid
+                    .span4
+                        label.control-label(for='firstname') First Name:
+                        input#firstname.input-small(type='text', name='firstname', value=genprofile.firstname)
+                    .span4
+                        label.control-label(for='middlename') Middle Name:
+                        input#middlename.input-small(type='text', name='middlename', value=genprofile.middlename)
+                    .span4
+                        label.control-label(for='lastname') Last Name:
+                        input#lastname.input-small(type='text', name='lastname', value=genprofile.lastname)
+                h5 Address:
+                .row-fluid
+                    .span12.address
+                        div
+                            label.control-label(for='addressline1') line1:
+                            input#addressline1(type='text', name='addressline1', value=genprofile.addressline1)
+                        div
+                            label.control-label(for='addressline2') line2:
+                            input#addressline2(type='text', name='addressline2', value=genprofile.addressline2)
+                        div
+                            label.control-label(for='city') City:
+                            input#city.input-small(type='text', name='city', value=genprofile.city)
+                        div
+                            label.control-label(for='state') State:
+                            input#state.input-small(type='text', name='state', value=genprofile.state)
+                            span(style='display: inline-block; margin-left: 5px;')
+                                label.control-label(for='zip') Zip:
+                                input#zip.input-small(type='text', name='zip', value=genprofile.zip)                    
+                        div
+                            label.control-label(for='country') Country:
+                            input#country.input-small(type='text', name='country',value=genprofile.country)                    
+                        div
+                            label.control-label(for='phone') Phone:
+                            input#phone.input-small(type='text', name='phone', value=genprofile.phone)
+
+            - else                
+                .row-fluid
+                    .span4
+                        label.control-label(for='firstname') First Name:
+                        input#firstname.input-small(type='text', name='firstname')
+                    .span4
+                        label.control-label(for='middlename') Middle Name:
+                        input#middlename.input-small(type='text', name='middlename')
+                    .span4
+                        label.control-label(for='lastname') Last Name:
+                        input#lastname.input-small(type='text', name='lastname')
+                h5 Address:
+                .row-fluid
+                    .span12.address
+                        div
+                            label.control-label(for='addressline1') line1:
+                            input#addressline1(type='text', name='addressline1')
+                        div
+                            label.control-label(for='addressline2') line2:
+                            input#addressline2(type='text', name='addressline2')
+                        div
+                            label.control-label(for='city') City:
+                            input#city.input-small(type='text', name='city')
+                        div
+                            label.control-label(for='state') State:
+                            input#state.input-small(type='text', name='state')
+                            span(style='display: inline-block; margin-left: 5px;')
+                                label.control-label(for='zip') Zip:
+                                input#zip.input-small(type='text', name='zip')
+                        div
+                            label.control-label(for='country') Country:
+                            input#country.input-small(type='text', name='country')
+                        div
+                            label.control-label(for='phone') Phone:
+                            input#phone.input-small(type='text', name='phone')        
+
+        .form-actions
+          button#general-profile-cancel.btn(type='button') Cancel
+          button#general-profile-submit.btn.btn-primary(type='submit') Next
+    form#professionalprofile.span10.well.hide(method='post')
+    form#educationprofile.span10.well.hide(method='post')
+block scripts
+    script(src='/js/views/editprofile/profiles.js')

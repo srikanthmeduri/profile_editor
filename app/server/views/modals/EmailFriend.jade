@@ -1,0 +1,18 @@
+#EmailFriendDialog.modal.hide.fade
+    div.modal-header
+        button.close(data-dismiss='modal') x
+        h3 Email to Friend
+    div.modal-body        
+        .control-group
+            label.control-label Email:                 
+            input(type="text", name="email", id='email').span5.required
+        .control-group
+            label.control-label Subject:                 
+            input(type="text", name="subject", id='subject').span5.required
+        .control-group
+            label.control-label Message:                 
+            textarea.input-xx-large(name="message", id='message').span5.required
+
+        .text-right
+            button(data-dismiss="modal")#cancel.btn Cancel
+            button(type="submit")#send.btn.btn-primary Send

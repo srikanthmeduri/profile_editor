@@ -1,0 +1,286 @@
+
+- user = typeof(userdata) != 'undefined' ? userdata : { }
+
+- profprofile = typeof(user.professionalprofile) != null ? user.professionalprofile : null
+    
+- if(profprofile != null)
+    //h1 yes data
+    - jobpositions = typeof(user.professionalprofile.jobpositions) != null ? user.professionalprofile.jobpositions : null        
+    fieldset
+        legend Professional Summary        
+        .control-group
+            label.control-label(for='objective') Objective:              
+            input#objective.input-xxlarge(type='text', name='objective', value=profprofile.objective)
+        .control-group
+            label.control-label2(for='summary') Summary:         
+            textarea#summary.input-xxlarge(name='summary') #{profprofile.summary}
+        
+    .jobpositionarray
+        each job, i in jobpositions
+            h1
+                span.arrow ►
+                span Job Position# #{i+1}
+            .jobposition.hide        
+                .row-fluid
+                    .span6                        
+                        label.control-label Title:
+                        input.jobtitle(type='text', name='jobtitle', value=job.jobtitle)                      
+                    .span6
+                        div
+                            label.control-label Is Current? 
+                            - if(job.iscurrentjob === 'true')
+                                input.iscurrentjob(type='checkbox', name='iscurrentjob', value=job.iscurrentjob, checked='checked')
+                            - else                                    
+                                input.iscurrentjob(type='checkbox', name='iscurrentjob', value=job.iscurrentjob)                                                                                                                                                          
+                        div
+                            label.control-label Start Date:                            
+                            input.input-small.startdate(type='text', name='startdate', value=job.startdate)                      
+                            label.control-label End Date:
+                            - if(job.iscurrentjob === 'true')
+                                input.input-small.enddate(type='text', name='enddate', disabled='disabled')
+                            - else                                    
+                                input.input-small.enddate(type='text', name='enddate', value=job.enddate)
+                                        
+                .row-fluid(style='margin-left: 50px;')
+                    h5 Location
+                    .control-group
+                        label.control-label City:                            
+                        input.joblocationcity(type='text', name='joblocationcity', value=job.joblocationcity)                      
+                    .control-group
+                        label.control-label State:                            
+                        input.joblocationstate(type='text', name='joblocationstate', value=job.joblocationstate)         
+                    .control-group
+                        label.control-label Country:                            
+                        input.joblocationcountry(type='text', name='joblocationcountry', value=job.joblocationcountry)                      
+                    .control-group
+                        label.control-label Zip:                            
+                        input.joblocationzip(type='text', name='joblocationzip', value=job.joblocationzip) 
+
+                .row-fluid
+                    .control-group
+                        label.control-label Responsibilities:                            
+                        textarea.input-xxlarge.jobresponsibilities(name='jobresponsibilities') #{job.jobresponsibilities}
+                    .control-group
+                        label.control-label Skills:                            
+                        textarea.input-xxlarge.jobskills(name='jobskills') #{job.jobskills}
+
+                .row-fluid
+                    .span6
+                        h5 Company
+                        .control-group
+                            label.control-label Name:                            
+                            input.companyname(type='text', name='companyname', value=job.companyinfo.companyname)
+                        .control-group
+                            label.control-label Description:                            
+                            textarea.companydescription(name='companydescription') #{job.companyinfo.companydescription}                
+                        .control-group
+                            label.control-label City:                            
+                            input.companylocationcity(type='text', name='companylocationcity', value=job.companyinfo.companylocationcity)                      
+                        .control-group
+                            label.control-label State:                            
+                            input.companylocationstate(type='text', name='companylocationstate', value=job.companyinfo.companylocationstate)         
+                        .control-group
+                            label.control-label Country:                            
+                            input.companylocationcountry(type='text', name='companylocationcountry', value=job.companyinfo.companylocationcountry)                      
+                        .control-group
+                            label.control-label Zip:                            
+                            input.companylocationzip(type='text', name='companylocationzip', value=job.companyinfo.companylocationzip)
+                    - if(job.agencyinfo != null)
+                        .span6
+                            h5 Agency
+                            .control-group
+                                label.control-label Name:                            
+                                input.agencyname(type='text', name='agencyname', value=job.agencyinfo.agencyname)                      
+                            .control-group
+                                label.control-label Description:                            
+                                textarea.agencydescription(name='agencydescription') #{job.agencyinfo.agencydescription}
+                            .control-group
+                                label.control-label City:                            
+                                input.agencylocationcity(type='text', name='agencylocationcity', value=job.agencyinfo.agencylocationcity)                      
+                            .control-group
+                                label.control-label State:                            
+                                input.agencylocationstate(type='text', name='agencylocationstate', value=job.agencyinfo.agencylocationstate)         
+                            .control-group
+                                label.control-label Country:                            
+                                input.agencylocationcountry(type='text', name='agencylocationcountry', value=job.agencyinfo.agencylocationcountry)                      
+                            .control-group
+                                label.control-label Zip:                            
+                                input.agencylocationzip(type='text', name='agencylocationzip', value=job.agencyinfo.agencylocationzip) 
+        
+                .row-fluid
+                    h3
+                        span.projectinfotitle Project
+                        a.addproject + Add More Projects
+                        .clear-fix
+                    .projectinfoarray
+                        each project, j in job.projectinfo                
+                            h6
+                                span.arrow ►
+                                span Project# #{j+1}
+                            .project.hide
+                                .control-group
+                                    label.control-label Name:                            
+                                    input.input-xxlarge.projectname(type='text', name='projectname', value=project.projectname)
+                                .control-group
+                                    label.control-label Description:                            
+                                    textarea.input-xxlarge.projectdescription(name='projectdescription') #{project.projectdescription}
+                                .control-group
+                                    label.control-label Is Current?
+                                    - if(job.iscurrentproject === 'true')
+                                        input.iscurrentproject(type='checkbox', name='iscurrentproject', checked='checked', value=job.iscurrentproject)                                        
+                                    - else                                    
+                                        input.iscurrentproject(type='checkbox', name='iscurrentproject', value=job.iscurrentproject)                                                                            
+                                .row-fluid
+                                    .span6
+                                        .control-group
+                                            label.control-label Start Date:                            
+                                            input.input-small.assignmentstart(type='text', name='assignmentstart', value=project.assignmentstart)                      
+                                    .span6
+                                        .control-group
+                                            label.control-label End Date:                            
+                                            - if(job.iscurrentproject === 'true')
+                                                input.input-small.assignmentend(type='text', name='assignmentend', disabled='disabled')
+                                            - else
+                                                input.input-small.assignmentend(type='text', name='assignmentend', value=project.assignmentend)                                            
+                                .control-group
+                                    label.control-label Role:                            
+                                    input.roleinprojectteam(type='text', name='roleinprojectteam', value=project.roleinprojectteam) 
+                                .control-group
+                                    label.control-label Responsibilities:                            
+                                    textarea.input-xxlarge.responsibilitiesonprojectteam(name='responsibilitiesonprojectteam') #{project.responsibilitiesonprojectteam}
+                                .control-group
+                                    label.control-label Skills:                            
+                                    textarea.input-xxlarge.skillsonprojectteam(name='skillsonprojectteam') #{project.skillsonprojectteam}      
+
+
+- else
+    //h1 no data
+    fieldset
+        legend Professional Summary
+            .control-group
+                label.control-label(for='objective') Objective:                            
+                textarea#objective.input-xxlarge(name='objective')
+            .control-group
+                label.control-label2(for='summary') Summary:                 
+                textarea#summary.input-xxlarge(name='summary')
+            .jobpositionarray
+                h1
+                    span.arrow ▼
+                    span Job Position#
+                .jobposition
+                    .row-fluid
+                        .span6                            
+                            label.control-label Title:
+                            input.jobtitle(type='text', name='jobtitle')
+                        .span6
+                            div
+                                label.control-label Is Current?                            
+                                input.iscurrentjob(type='checkbox', value='false', name='iscurrentjob')
+                            div
+                                label.control-label Start Date:                            
+                                input.input-small.startdate(type='text', name='startdate')
+                                label.control-label End Date:                            
+                                input.input-small.enddate(type='text', name='enddate')
+                    .row-fluid(style='margin-left: 50px;')
+                        h5 Location
+                        .control-group
+                            label.control-label City:                            
+                            input.joblocationcity(type='text', name='joblocationcity')
+                        .control-group
+                            label.control-label State:                            
+                            input.joblocationstate(type='text', name='joblocationstate')
+                        .control-group
+                            label.control-label Country:                            
+                            input.joblocationcountry(type='text', name='joblocationcountry')
+                        .control-group
+                            label.control-label Zip:                            
+                            input.joblocationzip(type='text', name='joblocationzip')
+                    .row-fluid
+                        .control-group
+                            label.control-label Responsibilities:                            
+                            textarea.input-xxlarge.jobresponsibilities(name='jobresponsibilities')
+                        .control-group
+                            label.control-label Skills:                            
+                            textarea.input-xxlarge.jobskills(name='jobskills')
+                    .row-fluid
+                        .span6
+                            h5 Company
+                            .control-group
+                                label.control-label Name:                            
+                                input.companyname(type='text', name='companyname')
+                            .control-group
+                                label.control-label Description:                            
+                                textarea.companydescription(name='companydescription')                 
+                            .control-group
+                                label.control-label City:                            
+                                input.companylocationcity(type='text', name='companylocationcity')
+                            .control-group
+                                label.control-label State:                            
+                                input.companylocationstate(type='text', name='companylocationstate')
+                            .control-group
+                                label.control-label Country:                            
+                                input.companylocationcountry(type='text', name='companylocationcountry')
+                            .control-group
+                                label.control-label Zip:                            
+                                input.companylocationzip(type='text', name='companylocationzip')
+                        .span6
+                            h5 Agency
+                            .control-group
+                                label.control-label Name:                            
+                                input.agencyname(type='text', name='agencyname')
+                            .control-group
+                                label.control-label Description:                            
+                                textarea.agencydescription(name='agencydescription')
+                            .control-group
+                                label.control-label City:                            
+                                input.agencylocationcity(type='text', name='agencylocationcity')
+                            .control-group
+                                label.control-label State:                            
+                                input.agencylocationstate(type='text', name='agencylocationstate')
+                            .control-group
+                                label.control-label Country:                            
+                                input.agencylocationcountry(type='text', name='agencylocationcountry')
+                            .control-group
+                                label.control-label Zip:                            
+                                input.agencylocationzip(type='text', name='agencylocationzip')
+                    .row-fluid
+                        h3
+                            span.projectinfotitle Project
+                            a.addproject + Add More Projects
+                            .clear-fix
+                        .projectinfoarray
+                            h6
+                                span.arrow ▼
+                                span Project#
+                            .project
+                                .control-group
+                                    label.control-label Name:                            
+                                    input.input-xxlarge.projectname(type='text', name='projectname')
+                                .control-group
+                                    label.control-label Description:                            
+                                    textarea.input-xxlarge.projectdescription(name='projectdescription')
+                                .control-group
+                                    label.control-label Is Current?                            
+                                    input.iscurrentproject(type='checkbox', value='false', name='iscurrentproject')
+                                .row-fluid
+                                    .span6
+                                        .control-group
+                                            label.control-label Start Date:                            
+                                            input.input-small.assignmentstart(type='text', name='assignmentstart')
+                                    .span6
+                                        .control-group
+                                            label.control-label End Date:                            
+                                            input.input-small.assignmentend(type='text', name='assignmentend')
+                                .control-group
+                                    label.control-label Role:                            
+                                    input.roleinprojectteam(type='text', name='roleinprojectteam')
+                                .control-group
+                                    label.control-label Responsibilities:                            
+                                    textarea.input-xxlarge.responsibilitiesonprojectteam(name='responsibilitiesonprojectteam')
+                                .control-group
+                                    label.control-label Skills:                            
+                                    textarea.input-xxlarge.skillsonprojectteam(name='skillsonprojectteam')
+                                                  
+.form-actions                
+    button(type='button')#addjob.btn.btn-primary Add More Jobs
+    button(type='submit')#professional-profile-next.btn.btn-primary Next

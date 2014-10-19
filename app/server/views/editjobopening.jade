@@ -1,0 +1,94 @@
+//- a = jobopening
+- jobinfo = jobopening.jobinfo
+- agencyexists = jobopening.agencyexists
+- agencyinfo = jobopening.agencyinfo
+- companyinfo = jobopening.companyinfo
+
+
+    input(type='hidden', id='rowid', value=id)
+    fieldset
+        legend Edit Job Opening
+        h5 Job Info
+        .control-group
+            label.control-label Job Title:
+            input.jobtitle(type='text', name='jobtitle', value=jobinfo.jobtitle)
+        .control-group
+            label.control-label Job Location:
+            input.joblocation(type='text', name='joblocation', value=jobinfo.joblocation)
+        .control-group
+            label.control-label Job Description:
+            textarea.jobdescription.input-xxlarge(name='jobdescription') #{jobinfo.jobdescription}
+        .control-group
+            label.control-label Job Responsibilities:
+            textarea.jobresponsibilities.input-xxlarge(name='jobresponsibilities') #{jobinfo.jobresponsibilities}
+        .control-group
+            label.control-label Skills:
+            textarea.skills.input-xxlarge(name='skills') #{jobinfo.skills}
+
+
+        - if(agencyexists === 'true')
+            .control-group
+                label.control-label By Agency?
+                input.byagency(type='checkbox', name='byagency', checked='checked', value=agencyexists)
+            h5 Agency Info
+            .control-group
+                label.control-label Name:
+                input.agencyname(type='text', name='agencyname', value=agencyinfo.agencyname)
+            .control-group
+                label.control-label Country:
+                input.agencycountry(type='text', name='agencycountry', value=agencyinfo.agencycountry)
+            .control-group
+                label.control-label State:
+                input.agencystate(type='text', name='agencystate', value=agencyinfo.agencystate)
+            .control-group
+                label.control-label City:
+                input.agencycity(type='text', name='agencycity', value=agencyinfo.agencycity)
+            .control-group
+                label.control-label Zip:
+                input.agencyzip(type='text', name='agencyzip', value=agencyinfo.agencyzip)
+        - else
+            .control-group
+                label.control-label By Agency?
+                input.byagency(type='checkbox', name='byagency', value=agencyexists)
+            h5 Agency Info
+            .control-group
+                label.control-label Name:
+                input.agencyname(type='text', name='agencyname', disabled='disabled')
+            .control-group
+                label.control-label Country:
+                input.agencycountry(type='text', name='agencycountry', disabled='disabled')
+            .control-group
+                label.control-label State:
+                input.agencystate(type='text', name='agencystate', disabled='disabled')
+            .control-group
+                label.control-label City:
+                input.agencycity(type='text', name='agencycity', disabled='disabled')
+            .control-group
+                label.control-label Zip:
+                input.agencyzip(type='text', name='agencyzip', disabled='disabled')
+
+
+        h5 Company Info
+        .control-group
+            label.control-label Name:
+            input.companyname(type='text', name='companyname', value=companyinfo.companyname)
+        .control-group
+            label.control-label Description:
+            textarea.companydescription.input-xxlarge(name='companydescription') #{companyinfo.companydescription}
+        .control-group
+            label.control-label Country:
+            input.companycountry(type='text', name='companycountry', value=companyinfo.companycountry)
+        .control-group
+            label.control-label State:
+            input.companystate(type='text', name='companystate', value=companyinfo.companystate)
+        .control-group
+            label.control-label City:
+            input.companycity(type='text', name='companycity', value=companyinfo.companycity)
+        .control-group
+            label.control-label Zip:
+            input.companyzip(type='text', name='companyzip', value=companyinfo.companyzip)
+
+
+    .form-actions                        
+        button(type='button')#editjobopeningformcancel.btn Cancel
+        button(type='submit')#editjobopeningformsubmit.btn.btn-primary Save

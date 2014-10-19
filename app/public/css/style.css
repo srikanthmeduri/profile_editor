@@ -1,0 +1,175 @@
+body { margin: 0; padding: 0; height: 100%; background-color: #dbf2fd; }
+#login-container { width: 420px; margin: 160px auto 0 auto; }
+#login-container label { margin: 15px 0 5px 5px; }
+#login-container button { width: 150px; padding: 6px 40px 6px 40px; float: left; margin-top: 15px; }
+#login-container .checkbox { margin: 23px 0 0 180px; }
+#login-container .btm-links { text-align: center; margin-top: 10px; }
+#login-container #create-account { float: right; margin-right: 13px; }
+#login-container #forgot-password { float: left; margin-left: 10px; }
+#account-form-container, #account-settings { width: 500px; margin: 80px auto; }
+#country-list { width: 280px; }
+.modal-form-errors li { color: #808080; text-shadow: -1px 1px 0 #fff; -moz-text-shadow: -1px 1px 0 #fff; -webkit-text-shadow: -1px 1px 0 #fff; color: #d8000c; }
+.modal-single-input { width: 452px; margin: -200px 0 0 -232px; }
+.modal-single-input form { color: #808080; text-shadow: -1px 1px 0 #fff; -moz-text-shadow: -1px 1px 0 #fff; -webkit-text-shadow: -1px 1px 0 #fff; margin-bottom: 0; }
+.modal-single-input form button { width: 80px; top: 213px; position: absolute; }
+.modal-single-input form #cancel { right: 110px; }
+.modal-single-input form #submit { right: 18px; }
+.modal-single-input .modal-body { height: 140px; overflow: hidden; padding-bottom: 0; }
+.modal-single-input .modal-footer { height: 20px; }
+.modal-alert { width: 310px; margin: -200px 0 0 -150px; }
+/*#btn-logout { width: 100px; top: 1px; right: 8px; position: absolute; }*/
+#print { padding: 20px; }
+#four04 { padding: 20px; }
+.clear-fix { clear: both; }
+.well { border: 1px solid #CCCCCC; float: none; margin: 0 auto; }
+.form-horizontal .control-label { width: 80px; }
+.form-horizontal .controls { margin-left: 120px; }
+.form-actions { text-align: right; margin-bottom: 0; padding-bottom: 0; }
+label { color: #808080; text-shadow: -1px 1px 0 #fff; -moz-text-shadow: -1px 1px 0 #fff; -webkit-text-shadow: -1px 1px 0 #fff; }
+.subheading { color: #808080; text-shadow: -1px 1px 0 #fff; -moz-text-shadow: -1px 1px 0 #fff; -webkit-text-shadow: -1px 1px 0 #fff; margin-top: 3px; }
+button i { padding-left: 8px; }
+.hide { display: none; }
+.header { padding-left: 10px; color: whitesmoke; }
+.floatleft { float: left; }
+
+/*bootstrap reset*/
+.navbar-inner { border-radius: 0; }
+#generalprofile { margin: 80px auto; }
+#generalprofile .control-group { margin-bottom: 0 !important; }
+#generalprofile .control-label { float: left; padding-top: 5px; width: 95px; }
+#generalprofile .control-label2 { float: left; padding-top: 5px; width: 60px; }
+#generalprofile .controls { float: left; }
+.address label { text-align: right; }
+#professionalprofile { margin: 80px auto; }
+#professionalprofile label { display: inline-block; text-align: right; }
+#professionalprofile .control-group { display: block; }
+#professionalprofile .control-group label { float: left; width: 95px; }
+#professionalprofile .control-group input, #professionalprofile .control-group textarea { float: left; }
+#educationprofile { margin: 80px auto; }
+#educationprofile label { display: inline-block; }
+#educationprofile .control-group { display: block; }
+#educationprofile .control-group label { float: left; width: 117px; }
+#professionalprofile .control-group:before, #professionalprofile .control-group:after { content: ""; display: table; }
+#professionalprofile .control-group:after { clear: both; }
+#professionalprofile legend { margin-bottom: 0; }
+.projectinfoarray h6 { cursor: pointer; background: #ddd; border-radius: 7px; padding: 2px 0; margin-bottom: 10px; }
+.projectinfoarray h6 .arrow { display: inline-block; padding: 0 5px; color: #999; }
+.jobpositionarray h1 { cursor: pointer; background: #ddd; border-radius: 7px; padding: 2px 0; margin-bottom: 10px; font-size: 19.5px; line-height: 36px; font-weight: normal; }
+.jobpositionarray h1 .arrow { display: inline-block; padding: 0 5px; color: #999; }
+.jobpositionarray h3 { font-weight: normal; }
+.jobpositionarray .projectinfotitle { float: left; }
+.jobpositionarray .addproject { float: right; font-size: 14px; cursor: pointer; display: block; margin-top: 10px; }
+.jobposition { border: 1px solid #CCCCCC; border-radius: 5px 5px 5px 5px; margin-bottom: 20px; padding: 5px; }
+.right-align { text-align: right; }
+#educationprofile .educationtitle, #educationprofile .certificationtitle { float: left; }
+#educationprofile .adddegree, #educationprofile .addcertification { float: right; font-size: 14px; cursor: pointer; display: block; margin-top: 10px; font-weight: normal; }
+#educationprofile h3 { font-weight: normal; }
+#educationprofile h6 { cursor: pointer; background: #ddd; border-radius: 7px; padding: 2px 0; margin-bottom: 10px; }
+#educationprofile h6 .arrow { display: inline-block; padding: 0 5px; color: #999; }
+#editjobopeningform, #addjobopeningform { margin: 80px auto; }
+#addjobopeningform .control-group label, #editjobopeningform .control-group label { float: left; width: 120px; text-align: right; padding-right: 5px; }
+
+
+
+#savedjobs{border:1px solid #ccc; border-radius: 5px; margin-left: 20px; margin-top: 20px;}
+#addjob{display: block; margin-top: 20px; margin-left: 20px; }
+
+
+
+#savedjobs td { padding: 0 5px; }
+#savedjobs select { width: 105px; margin-bottom: 0; }
+
+
+#smartedit{width: 102%;}
+#part1 { width: 300px; padding: 10px; float: left; border:1px solid #000; }
+#part1 .section { width: 100%; }
+#part1 .section .left { float: left; width: 85%; }
+#part1 .section .right { float: right; width: 15%; text-align: right; }
+#part1 .section:after { clear: both; content: ""; display: block; }
+#jobdesc, #jobresp, #skills { padding: 10px; }
+#overall_percent { }
+
+
+#part2 { float: left; width: 700px; margin:0 25px;  border:1px solid #000;}
+#headerbar .leftsection{float: left; width: 50%; vertical-align: top;}
+#headerbar .rightsection{float: right; width: 50%; text-align: right; }
+#headerbar:after{clear: both; content: ""; display: block;}
+
+
+
+
+
+#part2content { margin-left: 25px; }
+#part2 .section { width: 100%; }
+#part2 .section .left { float: left; width: 95%; }
+#part2 .section .right { float: right; width: 5%; text-align: right; }
+#part2 .section:after { clear: both; content: ""; display: block; }
+#part2 .showhide { cursor: pointer; }
+#part2 .collapse { background: url('/img/collapse.png') 100% 0 no-repeat; width: 10px; height: 10px; }
+#part2 .expand { background: url('/img/expand.png') 100% 0 no-repeat; width: 10px; height: 10px; }
+
+
+
+
+
+
+#part2 .title { float: left; width: 50%; }
+#part2 .dates { float: left; width: 30%; }
+#part2 .updown { float: left; width: 10%; }
+#part2 .expcol { float: left; width: 10%; }
+#part2 .rowhead:after { clear: both; content: ""; display: block; }
+#part2 .projects { margin-left:30px;}
+#search{display:inline-block; margin-right: 20px;}
+
+
+.c1 {
+        background-color: yellow;
+}
+
+.c2 {
+        background-color: #F3C46D;
+}
+
+.c3 {
+        background-color: #97F1EA;
+}
+
+.greenbg {
+        background-color: #78EC54;
+}
+
+.redbg {
+        background-color: #FA5757;
+}
+
+.whitebg {
+        background-color: white; cursor: pointer;
+}
+[contenteditable="true"] { padding: 10px; outline: 2px dashed #CCC; }
+[contenteditable="true"]:hover { outline: 2px dashed #0090D2; }
+
+
+
+
+
+.padtopbot5{padding: 5px 0;}
+.padtopbot10{padding: 10px 0;}
+.marginleft20{margin-left: 20px;}
+
+
+
+
+
+
+
+#part3{width: 200px; float: left; border:1px solid #000;}
+#part3 .title{font-weight: bold; margin-bottom: 5px;}
+#part3 .tags{background-color: #fafafa; height: 200px;}
+
+
+
+
+
+#EmailFriendDialog label{display: inline-block; width: 70px;}
+#EmailFriendDialog textarea{height: 240px;}
+.text-right {text-align:right;}

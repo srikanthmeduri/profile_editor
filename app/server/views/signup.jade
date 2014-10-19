@@ -1,0 +1,40 @@
+extends layout
+block content
+    include header
+    #account-form-container
+        form( method="post")#account-form.form-horizontal.well.span6
+            h1 Signup
+            p#sub1.subheading Please Choose your account details.
+            hr
+            fieldset                                         
+                #user-cg.control-group
+                    label.control-label(for='user-tf') Username
+                    .controls
+                        input#user-tf.input-xlarge.disabled(type='text', name='username')
+
+                #pass-cg.control-group
+                    label.control-label(for='pass-tf') Password
+                    .controls
+                        input#pass-tf.input-xlarge(type='password', name='password')
+
+                #email-cg.control-group
+                    label.control-label(for='email-tf') Email
+                    .controls
+                        input#email-tf.input-xlarge(type='text', name='email')
+
+                .form-actions
+                    button(type='button')#account-form-btn1.btn Cancel
+                    button(type='submit')#account-form-btn2.btn.btn-primary Submit
+
+    include modals/form-errors
+    include modals/alert
+
+block scripts
+    script(src='/vendor/jquery.min.js')         
+    script(src='/vendor/jquery.form.js')
+    script(src='/vendor/bootstrap-modal.js')
+    script(src='/vendor/bootstrap-transition.js')
+    script(src='/js/views/signup.js')
+    script(src='/js/controllers/signupController.js')
+    script(src='/js/form-validators/accountValidator.js')
+
